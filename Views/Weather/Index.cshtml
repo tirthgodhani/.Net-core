@@ -1,0 +1,26 @@
+﻿@model WeatherApp.Models.Weather
+
+<h2>Weather App</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label for="city">Enter City Name</label>
+        <input type="text" name="city" id="city" class="form-control" placeholder="City Name" />
+    </div>
+    <button type="submit" class="btn btn-primary">Get Weather</button>
+</form>
+
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger">@ViewBag.Error</div>
+    <div class="alert alert-danger">Enter valid city name</div>
+}
+
+@if (Model != null)
+{
+    <h3>Weather in @Model.CityName</h3>
+    <p>Description: @Model.Description</p>
+    <p>Temperature: @Model.Temperature °C</p>
+    <p>Humidity: @Model.Humidity %</p>
+    <p>Wind Speed: @Model.WindSpeed m/s</p>
+}
